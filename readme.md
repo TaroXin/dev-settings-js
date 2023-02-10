@@ -13,12 +13,18 @@ npm install dev-settings-js
 ```ts
 import DevSettings from 'dev-settings-js'
 
-DevSettings.isDebugger // 是否是调试模式
+// 获取系统变量
+DevSettings.vars.isDebug
 
-// 获取变量设置的值
-DevSettings.get('message')
-// 获取变量设置的完整信息
-DevSettings.getInfo('message')
+// 设置变量 与 获取变量
+const message = DevSettings.need('message', {
+  label: '测试消息',
+  initialValue: '没有设置',
+  // 文本框
+  component: 'text',
+})
+// 如果没有在插件中设置值的话，就为初始值，否则为设置号的值
+console.log(message) // 没有设置
 ```
 
 ## 上报信息
@@ -26,10 +32,14 @@ DevSettings.getInfo('message')
 ```ts
 import DevSettings from 'dev-settings-js'
 
-DevSettings.putLog('test message')
-DevSettings.putLog('test message 2')
+const logger = DevSettings.Logger.getInstance('LOGGER HEADER')
 
-DevSettings.setLogHeader('============')
-DevSettings.putLog('test message')
-DevSettings.putLog('test message 2')
+logger.push('test message')
+
+// 块级上报
+logger.startTrans('ROUND')
+logger.push(1)
+logger.push(2)
+logger.push(3)
+logger.endTrans()
 ```
