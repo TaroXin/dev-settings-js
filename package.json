@@ -1,12 +1,12 @@
 {
   "name": "@taroxin/dev-settings-js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Get or configure DevSettings.",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "publish": "nr build && bumpp package.json packages/*/package.json --commit --push --no-tag && pnpm -r publish --access public"
+    "release": "nr build && bumpp package.json packages/*/package.json --commit --push --no-tag && pnpm -r publish --access public"
   },
   "keywords": [],
   "author": "",
