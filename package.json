@@ -1,6 +1,6 @@
 {
   "name": "@taroxin/dev-settings-js",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Get or configure DevSettings.",
   "main": "dist/index.js",
   "scripts": {
