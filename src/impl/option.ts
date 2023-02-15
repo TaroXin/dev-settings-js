@@ -9,4 +9,4 @@ export interface SettingEventOption {
   value?: any
 }
 
-export type NeedOption = Exclude<SettingEventOption, 'id' | 'value'>
+export type NeedOption = Exclude<SettingEventOption, 'id' | 'value' | 'name'>

@@ -1,0 +1,13 @@
+<script type="module"> 
+import DevSettings from '../dist/index.js'
+console.log(DevSettings)
+
+setTimeout(() => {
+  const message = DevSettings.need('message', {
+    label: '测试消息',
+    component: 'text',
+    initialValue: '123'
+  })
+  console.log('message', message)
+}, 0)
+</script>

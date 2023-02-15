@@ -17,14 +17,17 @@ export default {
   need(name: string, option: NeedOption) {
     initConfig()
 
-    window.postMessage({
-      type: 'dev-settings-event',
-      messageType: 'need',
-      option: {
-        ...option,
-        name,
-      }
-    })
+    setTimeout(() => {
+      window.postMessage({
+        type: 'dev-settings-event',
+        messageType: 'need',
+        option: {
+          ...option,
+          name,
+          id: window.location.hostname
+        }
+      })
+    }, 1000)
 
     // 获取当前的值
     const exist = storageOptionList.find(o => o.name == name)

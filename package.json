@@ -1,16 +1,18 @@
 {
   "name": "@taroxin/dev-settings-js",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Get or configure DevSettings.",
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "publish": "nr build && bumpp package.json packages/*/package.json --commit --push --no-tag && pnpm -r publish --access public"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "bumpp": "^8.2.1",
     "esno": "^0.16.3",
     "jest": "^29.3.1",
     "typescript": "^4.9.4"
