@@ -35,7 +35,7 @@ export default {
         option: {
           ...option,
           name,
-          id: window.location.hostname
+          id: window.location.host
         }
       })
     }, 1000)
