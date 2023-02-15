@@ -4,6 +4,10 @@ import { NeedOption, SettingEventOption } from "./impl/option";
 let systemOptionList: SettingEventOption[] = []
 let storageOptionList: SettingEventOption[] = []
 
+const vars = {
+  isDebug: false,
+}
+
 function initConfig() {
   if (systemOptionList.length) return 
 
@@ -11,9 +15,16 @@ function initConfig() {
   const optionList: SettingEventOption[] = result ? JSON.parse(result) : []
   storageOptionList = optionList.filter(o => o.id != DEV_SETTING_VAR_ID)
   systemOptionList = optionList.filter(o => o.id == DEV_SETTING_VAR_ID)
+
+  systemOptionList.forEach(o => {
+    if (o.name && o.name in vars) {
+      (vars as any)[o.name] = o.value
+    }
+  })
 }
 
 export default {
+  vars,
   need(name: string, option: NeedOption) {
     initConfig()
 
