@@ -1,11 +1,11 @@
 {
-  "name": "dev-settings-js",
+  "name": "@taroxin/dev-settings-js",
   "version": "1.0.0",
   "description": "Get or configure DevSettings.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": ""
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
